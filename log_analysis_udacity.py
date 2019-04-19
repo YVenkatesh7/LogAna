@@ -15,8 +15,11 @@ def Articles_Alltime_Top3():
         cursor.execute(quest1)
         res = cursor.fetchall()
         print ("\ni).Popular All time Top most three Articles:")
-        for i in range(0, len(res), 1):
-            print ("\"" + res[i][0] + "\" - " + str(res[i][1]) + " views")
+        if res:
+            for i in range(0, len(res), 1):
+                print ("\"" + res[i][0] + "\" - " + str(res[i][1]) + " views")
+        else:
+            print("error")
     except Exception as er:
         print(er)
 
@@ -33,8 +36,11 @@ def Authors_Alltime_Top4():
         cursor.execute(query)
         res = cursor.fetchall()
         print ("\nii).Most four authors of all time Popular Authors:\n")
-        for i in range(0, len(res), 1):
-            print ("\"" + res[i][0] + "\" - " + str(res[i][1]) + " views")
+        if res:
+            for i in range(0, len(res), 1):
+                print ("\"" + res[i][0] + "\" - " + str(res[i][1]) + " views")
+        else:
+            print("error")
     except Exception as er:
         print(er)
 
@@ -49,8 +55,11 @@ def Log_Error_Status():
         cursor.execute(query)
         res = cursor.fetchall()
         print ("\nFind the Days with more than 1% of errors:\n")
-        for i in range(0, len(res), 1):
-            print (str(res[i][0])+ " - "+str(round(res[i][3], 2))+"% errors")
+        try res:
+            for i in range(0, len(res), 1):
+                print (str(res[i][0])+ " - "+str(round(res[i][3], 2))+"% errors")
+        else:
+            print("error")
     except Exception as er:
         print(er)
 
